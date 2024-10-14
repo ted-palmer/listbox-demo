@@ -1,43 +1,27 @@
 import React from "react";
-import * as ToggleGroup from "@radix-ui/react-toggle-group";
-import {
-	TextAlignLeftIcon,
-	TextAlignCenterIcon,
-	TextAlignRightIcon,
-} from "@radix-ui/react-icons";
+import { ListBox } from "./components/ListBox";
+import { ListBoxItem } from "./components/ListBoxItem";
 
-const toggleGroupItemClasses =
-	"flex size-[35px] items-center justify-center bg-white leading-4 text-mauve11 first:rounded-l last:rounded-r hover:bg-violet3 focus:z-10 focus:shadow-[0_0_0_2px] focus:shadow-black focus:outline-none data-[state=on]:bg-violet6 data-[state=on]:text-violet12";
+const App = () => (
+	<div className="flex gap-6 items-center justify-center flex-wrap">
+		<ListBox type="single" defaultValue="dog" aria-label="Animals" className="w-[150px]" onValueChange={(value) => console.log(value)}>
+			<ListBoxItem value="dog">Dog</ListBoxItem>
+			<ListBoxItem value="cat">Cat</ListBoxItem>
+			<ListBoxItem value="panda">Panda</ListBoxItem>
+			<ListBoxItem value="cow">Cow</ListBoxItem>
+		</ListBox>
 
-const ToggleGroupDemo = () => (
-	<ToggleGroup.Root
-		className="inline-flex space-x-px rounded bg-mauve6 shadow-[0_2px_10px] shadow-blackA4"
-		type="single"
-		defaultValue="center"
-		aria-label="Text alignment"
-	>
-		<ToggleGroup.Item
-			className={toggleGroupItemClasses}
-			value="left"
-			aria-label="Left aligned"
-		>
-			<TextAlignLeftIcon />
-		</ToggleGroup.Item>
-		<ToggleGroup.Item
-			className={toggleGroupItemClasses}
-			value="center"
-			aria-label="Center aligned"
-		>
-			<TextAlignCenterIcon />
-		</ToggleGroup.Item>
-		<ToggleGroup.Item
-			className={toggleGroupItemClasses}
-			value="right"
-			aria-label="Right aligned"
-		>
-			<TextAlignRightIcon />
-		</ToggleGroup.Item>
-	</ToggleGroup.Root>
+		<ListBox type="single" defaultValue="halo" aria-label="Xbox Games" className="w-[150px]" onValueChange={(value) => console.log(value)}>
+			<p className="font-medium text-gray-500">Singleplayer</p>
+			<ListBoxItem value="elden-ring">Elden Ring</ListBoxItem>
+			<ListBoxItem value="skyrim">Skyrim</ListBoxItem>
+			<p className="font-medium text-gray-500">Multiplayer</p>
+			<ListBoxItem value="apex">Apex</ListBoxItem>
+			<ListBoxItem value="halo">Halo</ListBoxItem>
+			<ListBoxItem value="fortnite" disabled>Fortnite</ListBoxItem>
+		</ListBox>
+	</div>
 );
 
-export default ToggleGroupDemo;
+export default App;
+
